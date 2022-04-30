@@ -4,10 +4,11 @@ import Navbar from './navbar';
 import PieChart from './pie-graph';
 import { useState } from 'react';
 import { ethers } from 'ethers';
+import { parseUnits } from 'ethers';
 import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown, AiOutlineArrowDown } from 'react-icons/ai'
 import Swap from './swap';
-
+import stablerabi from "./stablerERC20ABI.json";
 
 export default function Dashboard() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -16,7 +17,7 @@ export default function Dashboard() {
   const [type2, setType2] = useState(7);
   const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
   const [amount, setAmount] = useState();
-
+  const stablerContractAddress = "0x5dB42c8C270f9609105C03dE3743B5DBF031771a";
   async function requestAccount() {
     console.log('Requesting account...');
 
@@ -63,9 +64,18 @@ export default function Dashboard() {
     confirmButton: `text-2xl text-white cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
   }
 
-  const handleSwap = () => {
-    // call crypto functions here
-    console.log(amount)
+  const handleSwap = async() => {
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = await provider.getSigner();
+    const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, signer)
+    const totalEth = ethers.utils.formatUnits(amount, "ether");
+    const options = {value: ethers.utils.parseEther(amount)}
+    // console.log(totalEth)
+    await erc20.safeMint( walletAddress, ethers.utils.parseEther(amount), options);
+    console.log(walletAddress)
+    console.log(stablerContractAddress)
+    console.log(ethers.utils.parseEther(totalEth))
   }
 
   return (
