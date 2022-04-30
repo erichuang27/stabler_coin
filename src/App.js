@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Dashboard from './dashboard';
 
-function App() {
+export function App() {
   return (
     <div className="font-mono">
       {/* Hero page */}
