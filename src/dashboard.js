@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './navbar';
 import PieChart from './pie-graph';
 import { RiSettings3Fill } from 'react-icons/ri'
-import { AiOutlineDown } from 'react-icons/ai'
+import { AiOutlineDown, AiOutlineArrowDown } from 'react-icons/ai'
 import Swap from './swap';
 
 const style = {
@@ -16,12 +16,16 @@ const style = {
   currencySelectorContent: `w-full h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
   currencySelectorTicker: `mx-2`,
   currencySelectorArrow: `text-lg`,
-  confirmButton: `bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
+  downArrow: `text-lg mx-auto`,
+  confirmButton: `cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
 }
 
 export default function Dashboard() {
   // have state for keeping track of the amount
   // have submit thing that calls metamask stuff
+  const [type1, setType1] = useState(0);
+  const [type2, setType2] = useState(7);
+  const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
   const [amount, setAmount] = useState();
 
   const handleSwap = () => {
@@ -55,12 +59,32 @@ export default function Dashboard() {
                       pattern='^[0-9]*[.,]?[0-9]*$'
                       onChange={e => setAmount(e.target.value)}
                     />
-                    <div className={style.currencySelector}>
+                    <button className={style.currencySelector}
+                      onClick={() => setType1(type1 + 1)}>
                       <div className={style.currencySelectorContent}>
-                        <div className={style.currencySelectorTicker}>USDT</div>
-                        <AiOutlineDown className={style.currencySelectorArrow} />
+                        <div className={style.currencySelectorTicker} >{types[type1 % 8]}</div>
                       </div>
-                    </div>
+                    </button>
+                  </div>
+                  <AiOutlineArrowDown className={style.downArrow} />
+                  <div className={style.transferPropContainer}>
+                    <input
+                      type='text'
+                      value={amount}
+                      className={style.transferPropInput}
+                      placeholder='0.0'
+                      pattern='^[0-9]*[.,]?[0-9]*$'
+                      onChange={e => setAmount(e.target.value)}
+                    />
+                    <button
+                      className={style.currencySelector}
+                      onClick={() => setType2(type2 + 1)}>
+                      <div className={style.currencySelectorContent}>
+                        <div
+                          className={style.currencySelectorTicker}
+                        >{types[type2 % 8]}</div>
+                      </div>
+                    </button>
                   </div>
                   <div
                     onClick={() => handleSwap()}
