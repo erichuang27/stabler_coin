@@ -56,11 +56,11 @@ export default function Dashboard() {
     transferPropContainer: `my-3 rounded-2xl p-6 text-3xl  border border-[#20242A] hover:border-[#41444F]  flex justify-between`,
     transferPropInput: `bg-transparent placeholder:text-[#B2B9D2] outline-none w-full text`,
     currencySelector: `justify-end flex w-1/4`,
-    currencySelectorContent: `w-full h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
+    currencySelectorContent: `text-white w-full h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
     currencySelectorTicker: `mx-2`,
     currencySelectorArrow: `text-lg`,
     downArrow: `text-lg mx-auto`,
-    confirmButton: `cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
+    confirmButton: `text-2xl text-white cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
   }
 
   const handleSwap = () => {
@@ -74,11 +74,11 @@ export default function Dashboard() {
         <header className="w-full">
           <div className="px-8 py-3 flex justify-between w-full bg-indigo-500">
             <div className="flex align-middle">
-              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">Stabler</Link>
+              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">STABLER</Link>
             </div>
             <div className="flex align-middle">
               <button onClick={connectWallet}
-                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "Connect wallet" : walletAddress}</button>
+                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "CONNECT WALLET" : walletAddress}</button>
             </div>
           </div>
         </header>
@@ -93,7 +93,7 @@ export default function Dashboard() {
           <div className='grid grid-cols-2 gap-6'>
             <div className='border-2 rounded-lg'>
               <div className='m-4'>
-                Swap
+                SWAP
               </div>
               <div className={style.wrapper}>
                 <div className={style.content}>
@@ -133,11 +133,20 @@ export default function Dashboard() {
                       </div>
                     </button>
                   </div>
-                  <div
-                    onClick={() => handleSwap()}
-                    className={style.confirmButton}>
-                    Swap / Connect Wallet
-                  </div>
+                  {walletAddress == '' ? (
+                    <div
+                      onClick={connectWallet}
+                      className={style.confirmButton}>
+                      CONNECT WALLET
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() => handleSwap()}
+                      className={style.confirmButton}>
+                      SWAP
+                    </div>
+                  )}
+
                 </div>
               </div>
             </div>
