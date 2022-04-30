@@ -22,7 +22,7 @@ export function App() {
         </div>
       </div>
       {/* Info cards */}
-      <div className="h-[60rem] mx-[5rem] mt-10">
+      <div className="mx-[5rem] mt-10 mb-10">
         <div className="flex flex-row justify-between">
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
