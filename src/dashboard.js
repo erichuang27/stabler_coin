@@ -104,7 +104,7 @@ export default function Dashboard() {
           DASHBOARD
         </header>
         <div>
-          <div className='py-5'>
+          <div className=''>
           </div>
           <div className='grid grid-cols-2 gap-6'>
             <div className='border-2 rounded-lg'>
@@ -180,12 +180,12 @@ export default function Dashboard() {
                 <div className='border-2 rounded-lg h-full'>
                   <div className='h-full grid grid-rows-3 mx-4'>
                     <div className='my-auto font-bold text-2xl'>INTEREST</div>
-                    <div className="grid grid-cols-2">
-                      <div className='mt-3'> Interest Per Year</div>
+                    <div className="flex flex-row">
+                      <div className='mt-3 mr-5'> Interest Per Year</div>
                       <div className='text-4xl'>0.1%</div>
                     </div>
-                    <div className="grid grid-cols-2">
-                      <div className=''> Expected Interest Per Year</div>
+                    <div className="flex flex-row">
+                      <div className='mt-3 mr-5'> Expected Interest Per Year</div>
                       <div className='text-4xl'>${balance * 0.001}</div>
                     </div>
                   </div>
