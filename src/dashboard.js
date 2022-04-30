@@ -75,13 +75,13 @@ export default function Dashboard() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, signer)
-    const totalEth = ethers.utils.formatUnits(amount, "ether");
+    // const totalEth = ethers.utils.formatUnits(amount, "ether");
     const options = { value: ethers.utils.parseEther(amount) }
     // console.log(totalEth)
     await erc20.safeMint(walletAddress, ethers.utils.parseEther(amount), options);
-    console.log(walletAddress)
-    console.log(stablerContractAddress)
-    console.log(ethers.utils.parseEther(totalEth))
+    // console.log(walletAddress)
+    // console.log(stablerContractAddress)
+    // console.log(ethers.utils.parseEther(totalEth))
   }
 
   return (

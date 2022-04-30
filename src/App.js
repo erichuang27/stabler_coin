@@ -10,7 +10,7 @@ export function App() {
           <div className="mt-[10%] flex flex-col w-[50%]">
             <p className="text-9xl mt-auto mb-8 "
             >Stabler</p>
-            <p className="text-2xl mb-4">The Future Decentralized Reserve Currency</p>
+            <p className="text-2xl mb-4">Disrupting the StableCoin Ecosyssystem</p>
             <p className="text-lg mb-8">Stabler is a over-collateralized, decentralized, and diversified stable coin that is deeply liquid, asset-backed, and used widely across Web3.</p>
             <Link to="/dashboard" className="mb-auto w-48 bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded transition ease-in-out delay-25 duration-250">
               Enter Dashboard
@@ -32,7 +32,7 @@ export function App() {
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
             <h5 className="mb-2 font-bold text-4xl text-gray-900">Overcollateralization</h5>
-            <p className="text-lg text-gray-700"></p>
+            <p className="text-lg text-gray-700">An ever growing ratio of total backed-assets to total STB in circulation establishing a positive feedback loop of ever growing stability</p>
           </div>
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
