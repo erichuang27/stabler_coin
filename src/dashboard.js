@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { LineGraph } from './line-graph.tsx';
 import Navbar from './navbar';
 import PieChart from './pie-graph';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { parseUnits } from 'ethers';
 import { RiSettings3Fill } from 'react-icons/ri'
@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [type2, setType2] = useState(7);
   const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
   const [amount, setAmount] = useState();
-  const [provider, setProvider] = useState();
+
   const stablerContractAddress = "0x5dB42c8C270f9609105C03dE3743B5DBF031771a";
   async function requestAccount() {
     console.log('Requesting account...');
@@ -47,10 +47,12 @@ export default function Dashboard() {
       await requestAccount();
 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(provider)
-      const bal = await provider.getBalance(walletAddress)
-      console.log(ethers.utils.formatEther(bal))
-      setBalance(ethers.utils.formatEther(bal))
+      await provider.send("eth_requestAccounts", []);
+      const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, provider);
+      const signer = await provider.getSigner();
+      const signerAddress = await signer.getAddress();
+      const balance = await erc20.balanceOf(signerAddress);
+      setBalance(ethers.utils.formatEther(balance))
     }
   }
 
