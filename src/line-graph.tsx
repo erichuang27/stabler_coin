@@ -36,7 +36,7 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['4/30 12:00', '4/30 16:00', '4/30 20:00', '4/30 24:00', '4/31 4:00', '4/31 8:00'];
 
 export const data = {
   labels,
