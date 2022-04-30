@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="font-mono">
       {/* Hero page */}
-      <div className="bg-gradient-to-r from-indigo-500 h-[60rem] text-white">
+      <div className="bg-gradient-to-r from-indigo-500 to-indigo-100 h-[60rem] text-white animate-moving-bg bg-[length:500%_500%]">
         <div className="flex flex-row justify-between mx-[10rem]">
           <div className="mt-[10%] flex flex-col w-[50%]">
             <p className="text-9xl mt-auto mb-8 "
