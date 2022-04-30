@@ -8,7 +8,8 @@ import { ethers } from 'ethers';
 
 
 export default function Dashboard() {
-  const [address, setAddress] = useState('')
+  const [walletAddress, setWalletAddress] = useState('')
+
   async function requestAccount() {
     console.log('Requesting account...');
 
@@ -32,6 +33,7 @@ export default function Dashboard() {
 
   // Create a provider to interact with a smart contract
   async function connectWallet() {
+    console.log()
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount();
 
@@ -41,7 +43,19 @@ export default function Dashboard() {
 
   return (
     <div className='font-mono'>
-      <Navbar />
+      <div className="font-mono p-0 m-0">
+        <header className="w-full">
+          <div className="px-8 py-3 flex justify-between w-full bg-indigo-500">
+            <div className="flex align-middle">
+              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">Stabler Coin </Link>
+            </div>
+            <div className="flex align-middle">
+              <button onClick={connectWallet}
+                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "Connect wallet" : walletAddress}</button>
+            </div>
+          </div>
+        </header>
+      </div>
       <div className='mx-8'>
         <header className='py-4 text-left font-bold text-5xl'>
           DASHBOARD

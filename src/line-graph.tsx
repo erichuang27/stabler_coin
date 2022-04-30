@@ -10,7 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
 
 ChartJS.register(
   CategoryScale,
@@ -36,14 +35,14 @@ export const options = {
   },
 };
 
-const labels = ['4/30 12:00', '4/30 16:00', '4/30 20:00', '4/30 24:00', '4/31 4:00', '4/31 8:00'];
+const labels = ['September', 'October', 'November', 'December', 'January', 'February', 'March', 'April'];
 
 export const data = {
   labels,
   datasets: [
     {
       label: 'Total Circulation',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      data: [216544, 397654, 597654, 997050, 1101004, 1004506, 1070235, 1180645],
       borderColor: 'rgb(99, 102, 241)',
       backgroundColor: 'rgb(99, 102, 241, 0.5)',
     },
