@@ -74,11 +74,11 @@ export default function Dashboard() {
         <header className="w-full">
           <div className="px-8 py-3 flex justify-between w-full bg-indigo-500">
             <div className="flex align-middle">
-              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">Stabler</Link>
+              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">STABLER</Link>
             </div>
             <div className="flex align-middle">
               <button onClick={connectWallet}
-                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "Connect wallet" : walletAddress}</button>
+                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "CONNECT WALLET" : walletAddress}</button>
             </div>
           </div>
         </header>
@@ -137,7 +137,7 @@ export default function Dashboard() {
                     <div
                       onClick={connectWallet}
                       className={style.confirmButton}>
-                      Connect Wallet
+                      CONNECT WALLET
                     </div>
                   ) : (
                     <div
