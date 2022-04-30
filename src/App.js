@@ -9,7 +9,6 @@ export function App() {
         <div className="flex flex-row justify-between mx-[10rem]">
           <div className="mt-[10%] flex flex-col w-[50%]">
             <p className="text-9xl mt-auto mb-8 "
-              x-intersect="$el.classList.add('fadeInUp')"
             >Stabler</p>
             <p className="text-2xl mb-4">The Future Decentralized Reserve Currency</p>
             <p className="text-lg mb-8">Stabler is a community-owned, decentralized and censorship-resistant reserve currency that is deeply liquid, asset-backed, and used widely across Web3.</p>
