@@ -26,17 +26,17 @@ export function App() {
         <div className="flex flex-row justify-between">
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
-            <h5 className="mb-2 font-bold text-4xl text-gray-900">Purchasing Power</h5>
-            <p className="text-lg text-gray-700">Strong purchasing power forms the foundation of a reserve currency. Stable preserves purchasing power with a combination of tokenomics, sound policy decisions, and active treasury management.</p>
+            <h5 className="mb-2 font-bold text-4xl text-gray-900">Diversification</h5>
+            <p className="text-lg text-gray-700">Constructs a portfolio of decentralized stable coins to mitigate the risk of any one stable coin failing or depegging</p>
           </div>
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
-            <h5 className="mb-2 font-bold text-4xl text-gray-900">Universal Acceptance</h5>
-            <p className="text-lg text-gray-700">A successful reserve currency must also be liquid and easily tradable for other assets. Stable works on providing deep liquidity for Stable across a wide variety of trading pairs and blockchains.</p>
+            <h5 className="mb-2 font-bold text-4xl text-gray-900">Overcollateralization</h5>
+            <p className="text-lg text-gray-700"></p>
           </div>
 
           <div className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
-            <h5 className="mb-2 font-bold text-4xl text-gray-900">High Utility</h5>
+            <h5 className="mb-2 font-bold text-4xl text-gray-900">Earn Interest</h5>
             <p className="text-lg text-gray-700">Finally, to reach mass-adoption, Stable must achieve high utility. Stable is rapidly building new protocols and partnering with community initiatives to continue to expand the use cases for Stable.</p>
           </div>
 
