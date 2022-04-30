@@ -12,7 +12,7 @@ const style = {
   formHeader: `px-2 flex items-center justify-between font-semibold text-xl`,
   transferPropContainer: `my-3 rounded-2xl p-6 text-3xl  border border-[#20242A] hover:border-[#41444F]  flex justify-between`,
   transferPropInput: `bg-transparent placeholder:text-[#B2B9D2] outline-none w-full text`,
-  currencySelector: `flex w-1/4`,
+  currencySelector: `justify-end flex w-1/4`,
   currencySelectorContent: `w-full h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
   currencySelectorTicker: `mx-2`,
   currencySelectorArrow: `text-lg`,
