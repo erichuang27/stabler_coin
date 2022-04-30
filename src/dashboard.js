@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { LineGraph } from './line-graph.tsx';
 import Navbar from './navbar';
 import PieChart from './pie-graph';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { parseUnits } from 'ethers';
 import { RiSettings3Fill } from 'react-icons/ri'
@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [type2, setType2] = useState(7);
   const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
   const [amount, setAmount] = useState();
-  const [provider, setProvider] = useState();
+
   const stablerContractAddress = "0x5dB42c8C270f9609105C03dE3743B5DBF031771a";
   async function requestAccount() {
     console.log('Requesting account...');
@@ -47,10 +47,12 @@ export default function Dashboard() {
       await requestAccount();
 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(provider)
-      const bal = await provider.getBalance(walletAddress)
-      console.log(ethers.utils.formatEther(bal))
-      setBalance(ethers.utils.formatEther(bal))
+      await provider.send("eth_requestAccounts", []);
+      const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, provider);
+      const signer = await provider.getSigner();
+      const signerAddress = await signer.getAddress();
+      const balance = await erc20.balanceOf(signerAddress);
+      setBalance(ethers.utils.formatEther(balance))
     }
   }
 
@@ -73,13 +75,13 @@ export default function Dashboard() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, signer)
-    const totalEth = ethers.utils.formatUnits(amount, "ether");
+    // const totalEth = ethers.utils.formatUnits(amount, "ether");
     const options = { value: ethers.utils.parseEther(amount) }
     // console.log(totalEth)
     await erc20.safeMint(walletAddress, ethers.utils.parseEther(amount), options);
-    console.log(walletAddress)
-    console.log(stablerContractAddress)
-    console.log(ethers.utils.parseEther(totalEth))
+    // console.log(walletAddress)
+    // console.log(stablerContractAddress)
+    // console.log(ethers.utils.parseEther(totalEth))
   }
 
   return (
@@ -102,7 +104,7 @@ export default function Dashboard() {
           DASHBOARD
         </header>
         <div>
-          <div className='py-5'>
+          <div className=''>
           </div>
           <div className='grid grid-cols-2 gap-6'>
             <div className='border-2 rounded-lg'>
@@ -178,6 +180,7 @@ export default function Dashboard() {
                 <div className='border-2 rounded-lg h-full'>
                   <div className='h-full grid grid-rows-3 mx-4'>
                     <div className='my-auto font-bold text-2xl'>INTEREST</div>
+
                     <div className="grid grid-cols-2">
                       <div className='mt-3'> Interest Per Year</div>
                       <div className='text-4xl'>0.2%</div>
@@ -185,6 +188,7 @@ export default function Dashboard() {
                     <div className="grid grid-cols-2">
                       <div className=''> Expected Interest Per Year</div>
                       <div className='text-4xl'>${balance * 0.002}</div>
+
                     </div>
                   </div>
                 </div>
