@@ -11,11 +11,12 @@ import Swap from './swap';
 
 export default function Dashboard() {
   const [walletAddress, setWalletAddress] = useState('');
-  const [provider, setProvider] = useState(null);
+  const [balance, setBalance] = useState(0);
   const [type1, setType1] = useState(0);
   const [type2, setType2] = useState(7);
   const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
+  const [provider, setProvider] = useState();
 
   async function requestAccount() {
     console.log('Requesting account...');
@@ -45,7 +46,10 @@ export default function Dashboard() {
       await requestAccount();
 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(provider);
+      setProvider(provider)
+      const bal = await provider.getBalance(walletAddress)
+      console.log(ethers.utils.formatEther(bal))
+      setBalance(ethers.utils.formatEther(bal))
     }
   }
 
@@ -150,27 +154,28 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className='border-2 rounded-lg'>
-              <div className='mx-4 mt-4'>EXCHANGE RATE</div>
-              <div className='grid grid-cols-3 gap-4'>
-                <div className='mx-4 flex justify-center items-center'>
-                  1 STB
+            <div className='h-full'>
+              <div className='h-full grid grid-rows-2'>
+                <div className='border-2 mb-4 rounded-lg grid grid-rows-3'>
+                  <div className='m-4'>CURRENT BALANCE</div>
+                  <div className="w-full row-span-2 flex">
+                    <div className="ml-10 text-6xl mt-5">{balance}</div>
+                    <div className="text-xl ml-4 mt-4">
+                      STB
+                    </div>
+                  </div>
                 </div>
-                <div className='mx-4 flex justify-center items-center'>
-                  =
-                </div>
-                <div className='my-4 justify-center items-center'>
-                  <div>
-                    1 USDT
-                  </div>
-                  <div>
-                    1 USDC
-                  </div>
-                  <div>
-                    1 UST
-                  </div>
-                  <div>
-                    1 DAI
+                <div className='border-2 rounded-lg h-full'>
+                  <div className='h-full grid grid-rows-3 mx-4'>
+                    <div className='my-auto'>INTEREST</div>
+                    <div className="grid grid-cols-2">
+                      <div className='mt-3'> Interest Per Year</div>
+                      <div className='text-4xl'>0.1%</div>
+                    </div>
+                    <div className="grid grid-cols-2">
+                      <div className=''> Expected Interest Per Year</div>
+                      <div className='text-4xl'>${balance * 0.001}</div>
+                    </div>
                   </div>
                 </div>
               </div>
