@@ -22,7 +22,7 @@ const style = {
 export default function Dashboard() {
   // have state for keeping track of the amount
   // have submit thing that calls metamask stuff
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
 
   const handleSwap = () => {
     // call crypto functions here
