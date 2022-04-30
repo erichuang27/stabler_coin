@@ -96,7 +96,7 @@ export default function Dashboard() {
           </div>
           <div className='grid grid-cols-2 gap-6'>
             <div className='border-2 rounded-lg'>
-              <div className='m-4'>
+              <div className='m-4 font-bold text-2xl'>
                 SWAP
               </div>
               <div className={style.wrapper}>
@@ -157,7 +157,7 @@ export default function Dashboard() {
             <div className='h-full'>
               <div className='h-full grid grid-rows-2'>
                 <div className='border-2 mb-4 rounded-lg grid grid-rows-3'>
-                  <div className='m-4'>CURRENT BALANCE</div>
+                  <div className='m-4 font-bold text-2xl'>CURRENT BALANCE</div>
                   <div className="w-full row-span-2 flex">
                     <div className="ml-10 text-6xl mt-5">{balance}</div>
                     <div className="text-xl ml-4 mt-4">
@@ -167,7 +167,7 @@ export default function Dashboard() {
                 </div>
                 <div className='border-2 rounded-lg h-full'>
                   <div className='h-full grid grid-rows-3 mx-4'>
-                    <div className='my-auto'>INTEREST</div>
+                    <div className='my-auto font-bold text-2xl'>INTEREST</div>
                     <div className="grid grid-cols-2">
                       <div className='mt-3'> Interest Per Year</div>
                       <div className='text-4xl'>0.1%</div>
@@ -181,18 +181,18 @@ export default function Dashboard() {
               </div>
             </div>
             <div className='border-2 rounded-lg'>
-              <div className='m-4'>TOTAL RESERVE</div>
+              <div className='m-4 font-bold text-2xl'>TOTAL RESERVE</div>
               <div className='flex w-full h-full justify-center'>
-                <div className="w-1/2 p-5">
+                <div className="w-3/5 p-5">
                   <PieChart />
                 </div>
-                <div className="relative bottom-7 flex flex-col align-middle my-auto">
+                <div className="relative bottom-9 flex flex-col align-middle my-auto">
                   <p>Total Deposit</p>
-                  <p>$XXXXX</p>
+                  <p>$1,402,708</p>
                 </div>
               </div>
             </div>
-            <div className='border-2 rounded-lg'><div className='m-4'>TOTAL CIRCULATION</div>
+            <div className='border-2 rounded-lg'><div className='m-4 font-bold text-2xl'>TOTAL CIRCULATION</div>
               <div className="p-5"> <LineGraph /></div>
             </div>
           </div>
