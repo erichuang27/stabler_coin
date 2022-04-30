@@ -47,7 +47,7 @@ export default function Dashboard() {
         <header className="w-full">
           <div className="px-8 py-3 flex justify-between w-full bg-indigo-500">
             <div className="flex align-middle">
-              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">Stabler Coin </Link>
+              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">Stabler</Link>
             </div>
             <div className="flex align-middle">
               <button onClick={connectWallet}
