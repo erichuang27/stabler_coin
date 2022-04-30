@@ -17,6 +17,7 @@ export default function Dashboard() {
   const [type2, setType2] = useState(7);
   const types = ["USDT", "DAI", "BUSD", "USDC", "TUSD", "UST", "DGX", "STB"]
   const [amount, setAmount] = useState();
+  const [provider, setProvider] = useState();
   const stablerContractAddress = "0x5dB42c8C270f9609105C03dE3743B5DBF031771a";
   async function requestAccount() {
     console.log('Requesting account...');
@@ -60,22 +61,22 @@ export default function Dashboard() {
     transferPropContainer: `my-3 rounded-2xl p-6 text-3xl  border border-[#20242A] hover:border-[#41444F]  flex justify-between`,
     transferPropInput: `bg-transparent placeholder:text-[#B2B9D2] outline-none w-full text`,
     currencySelector: `justify-end flex w-1/4`,
-    currencySelectorContent: `text-white w-full h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
+    currencySelectorContent: `text-white h-min flex justify-between items-center bg-indigo-400 hover:bg-indigo-600 rounded-2xl text-xl font-medium cursor-pointer p-2 mt-[-0.2rem]`,
     currencySelectorTicker: `mx-2`,
     currencySelectorArrow: `text-lg`,
     downArrow: `text-lg mx-auto`,
     confirmButton: `text-2xl text-white cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
   }
 
-  const handleSwap = async() => {
+  const handleSwap = async () => {
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, signer)
     const totalEth = ethers.utils.formatUnits(amount, "ether");
-    const options = {value: ethers.utils.parseEther(amount)}
+    const options = { value: ethers.utils.parseEther(amount) }
     // console.log(totalEth)
-    await erc20.safeMint( walletAddress, ethers.utils.parseEther(amount), options);
+    await erc20.safeMint(walletAddress, ethers.utils.parseEther(amount), options);
     console.log(walletAddress)
     console.log(stablerContractAddress)
     console.log(ethers.utils.parseEther(totalEth))
