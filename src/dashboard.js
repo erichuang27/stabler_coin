@@ -5,6 +5,9 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 import { AiOutlineArrowDown } from 'react-icons/ai'
 import stablerabi from "./stablerERC20ABI.json";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react'
 
 export default function Dashboard() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -63,7 +66,7 @@ export default function Dashboard() {
     currencySelectorTicker: `mx-2`,
     currencySelectorArrow: `text-lg`,
     downArrow: `text-lg mx-auto`,
-    confirmButton: `text-2xl text-white cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-250`,
+    confirmButton: `text-2xl text-white cursor-pointer bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded-2xl transition ease-in-out delay-25 duration-400`,
   }
 
   const handleSwap = async () => {
@@ -71,14 +74,13 @@ export default function Dashboard() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(stablerContractAddress, stablerabi, signer)
-    // const totalEth = ethers.utils.formatUnits(amount, "ether");
     const options = { value: ethers.utils.parseEther(amount) }
-    // console.log(totalEth)
     await erc20.safeMint(walletAddress, ethers.utils.parseEther(amount), options);
-    // console.log(walletAddress)
-    // console.log(stablerContractAddress)
-    // console.log(ethers.utils.parseEther(totalEth))
   }
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   return (
     <div className='font-mono'>
@@ -86,11 +88,11 @@ export default function Dashboard() {
         <header className="w-full">
           <div className="px-8 py-3 flex justify-between w-full bg-indigo-500">
             <div className="flex align-middle">
-              <Link className="transition linear delay-25 font-bold text-3xl text-white hover:text-black duration-250" to="/">STABLER</Link>
+              <Link className="font-bold text-3xl text-white" to="/">STABLER</Link>
             </div>
             <div className="flex align-middle">
               <button onClick={connectWallet}
-                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress == '' ? "CONNECT WALLET" : walletAddress}</button>
+                className="transition ease-in-out delay-25 border-white border-2 px-2 rounded-xl text-white hover:scale-105 hover:bg-white hover:text-black hover:border-black duration-250">{walletAddress === '' ? "CONNECT WALLET" : walletAddress}</button>
             </div>
           </div>
         </header>
@@ -100,10 +102,8 @@ export default function Dashboard() {
           DASHBOARD
         </header>
         <div>
-          <div className=''>
-          </div>
           <div className='grid grid-cols-2 gap-6'>
-            <div className='border-2 rounded-lg'>
+            <div data-aos="zoom-in" className='border-2 rounded-lg'>
               <div className='m-4 font-bold text-2xl'>
                 SWAP
               </div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
                       </div>
                     </button>
                   </div>
-                  {walletAddress == '' ? (
+                  {walletAddress === '' ? (
                     <div
                       onClick={connectWallet}
                       className={style.confirmButton}>
@@ -164,7 +164,7 @@ export default function Dashboard() {
             </div>
             <div className='h-full'>
               <div className='h-full grid grid-rows-2'>
-                <div className='border-2 mb-4 rounded-lg grid grid-rows-3'>
+                <div data-aos="zoom-in" className='border-2 mb-4 rounded-lg grid grid-rows-3'>
                   <div className='m-4 font-bold text-2xl'>CURRENT BALANCE</div>
                   <div className="w-full row-span-2 flex">
                     <div className="ml-10 text-6xl mt-5">{balance}</div>
@@ -173,24 +173,24 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <div className='border-2 rounded-lg h-full'>
+                <div data-aos="zoom-in" className='border-2 rounded-lg h-full'>
                   <div className='h-full grid grid-rows-3 mx-4'>
                     <div className='my-auto font-bold text-2xl'>INTEREST</div>
 
                     <div className="flex flex-row">
                       <div className='mt-3 mr-8'> Interest Per Year</div>
-                      <div className='text-4xl'>0.2%</div>
+                      <div className='text-4xl'>0.5%</div>
                     </div>
                     <div className="flex flex-row">
                       <div className='mt-3 mr-8'> Expected Interest Per Year</div>
-                      <div className='text-4xl'>${balance * 0.002}</div>
+                      <div className='text-4xl'>${balance * 0.005}</div>
 
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='border-2 rounded-lg'>
+            <div data-aos="zoom-in" className='border-2 rounded-lg'>
               <div className='m-4 font-bold text-2xl'>TOTAL RESERVE</div>
               <div className='flex w-full h-full justify-center'>
                 <div className="w-3/5 p-5">
@@ -202,7 +202,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className='border-2 rounded-lg'><div className='m-4 font-bold text-2xl'>TOTAL IN CIRCULATION & TREASURY</div>
+            <div data-aos="zoom-in" className='border-2 rounded-lg'><div className='m-4 font-bold text-2xl'>TOTAL IN CIRCULATION & TREASURY</div>
               <div className="p-5"> <LineGraph /></div>
             </div>
           </div>
