@@ -36,8 +36,8 @@ export function App() {
           </div>
 
           <div data-aos="fade-down" data-aos-duration="1750" className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
-            <h5 className="mb-2 font-bold text-4xl text-gray-900">Overcollateralization</h5>
-            <p className="text-lg text-gray-700">An ever growing ratio of total backed-assets to total STB in circulation establishing a positive feedback loop of ever growing stability</p>
+            <h5 className="mb-2 font-bold text-4xl text-gray-900">Over-collateralization</h5>
+            <p className="text-lg text-gray-700">An evergrowing ratio of total backed-assets to total STB in circulation establishing a positive feedback loop of evergrowing stability</p>
           </div>
 
           <div data-aos="fade-down" data-aos-duration="2500" className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
