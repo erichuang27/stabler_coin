@@ -16,7 +16,7 @@ export function App() {
             <p className="text-9xl mt-auto mb-8 "
             >Stabler</p>
             <p className="text-2xl mb-4">Stabilizing the Crypto Ecosystem</p>
-            <p className="text-lg mb-8">Stabler is a over-collateralized, decentralized, and diversified stable coin that is deeply liquid, asset-backed, and used widely across Web3.</p>
+            <p className="text-lg mb-8">Stabler is a over-collateralized, decentralized, and diversified stablecoin that is deeply liquid, asset-backed, and used widely across Web3.</p>
             <Link to="/dashboard" className="text-xl mb-auto w-48 bg-indigo-400 hover:bg-indigo-600 py-2 px-4 text-center rounded transition ease-in-out delay-25 duration-250">
               Enter App
             </Link>
