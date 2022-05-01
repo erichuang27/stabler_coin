@@ -12,7 +12,7 @@ module.exports = {
         },
       },
       animation: {
-        'moving-bg': 'gradient 10s ease infinite',
+        'moving-bg': 'gradient 9s ease infinite',
       },
     },
   },

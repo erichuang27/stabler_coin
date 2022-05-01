@@ -24,10 +24,6 @@ ChartJS.register(
 export const options = {
   responsive: true,
   plugins: {
-    legend: {
-      display: false,
-      position: 'top' as const,
-    },
     title: {
       display: false,
       text: 'Chart.js Line Chart',
@@ -41,10 +37,16 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Total Circulation',
+      label: 'Total in Circulation',
       data: [216544, 397654, 597654, 997050, 1101004, 1004506, 1070235, 1180645],
       borderColor: 'rgb(99, 102, 241)',
       backgroundColor: 'rgb(99, 102, 241, 0.5)',
+    },
+    {
+      label: 'Total in Treasury',
+      data: [226544, 417654, 647654, 1067050, 1191004, 1094506, 1190235, 1310645],
+      borderColor: 'rgb(22, 164, 216)',
+      backgroundColor: 'rgb(22, 164, 216, 0.5)',
     },
   ],
 };

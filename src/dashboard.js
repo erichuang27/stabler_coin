@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom';
 import { LineGraph } from './line-graph.tsx';
-import Navbar from './navbar';
 import PieChart from './pie-graph';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ethers } from 'ethers';
-import { parseUnits } from 'ethers';
-import { RiSettings3Fill } from 'react-icons/ri'
-import { AiOutlineDown, AiOutlineArrowDown } from 'react-icons/ai'
-import Swap from './swap';
+import { AiOutlineArrowDown } from 'react-icons/ai'
 import stablerabi from "./stablerERC20ABI.json";
 
 export default function Dashboard() {
@@ -181,12 +177,12 @@ export default function Dashboard() {
                   <div className='h-full grid grid-rows-3 mx-4'>
                     <div className='my-auto font-bold text-2xl'>INTEREST</div>
 
-                    <div className="grid grid-cols-2">
-                      <div className='mt-3'> Interest Per Year</div>
+                    <div className="flex flex-row">
+                      <div className='mt-3 mr-8'> Interest Per Year</div>
                       <div className='text-4xl'>0.2%</div>
                     </div>
-                    <div className="grid grid-cols-2">
-                      <div className=''> Expected Interest Per Year</div>
+                    <div className="flex flex-row">
+                      <div className='mt-3 mr-8'> Expected Interest Per Year</div>
                       <div className='text-4xl'>${balance * 0.002}</div>
 
                     </div>
@@ -201,12 +197,12 @@ export default function Dashboard() {
                   <PieChart />
                 </div>
                 <div className="relative bottom-9 flex flex-col align-middle my-auto">
-                  <p>Total Deposit</p>
+                  <p>TOTAL</p>
                   <p>$1,402,708</p>
                 </div>
               </div>
             </div>
-            <div className='border-2 rounded-lg'><div className='m-4 font-bold text-2xl'>TOTAL CIRCULATION</div>
+            <div className='border-2 rounded-lg'><div className='m-4 font-bold text-2xl'>TOTAL IN CIRCULATION & TREASURY</div>
               <div className="p-5"> <LineGraph /></div>
             </div>
           </div>
