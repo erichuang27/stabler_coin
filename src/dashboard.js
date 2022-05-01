@@ -179,11 +179,11 @@ export default function Dashboard() {
 
                     <div className="flex flex-row">
                       <div className='mt-3 mr-8'> Interest Per Year</div>
-                      <div className='text-4xl'>0.5%</div>
+                      <div className='text-4xl'>1%</div>
                     </div>
                     <div className="flex flex-row">
                       <div className='mt-3 mr-8'> Expected Interest Per Year</div>
-                      <div className='text-4xl'>${balance * 0.005}</div>
+                      <div className='text-4xl'>${balance * 0.01}</div>
 
                     </div>
                   </div>
