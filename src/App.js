@@ -41,8 +41,8 @@ export function App() {
           </div>
 
           <div data-aos="fade-down" data-aos-duration="2500" className="px-10 py-20 w-[35rem] rounded-lg bg-indigo-100 shadow-lg">
-            <h5 className="mb-2 font-bold text-4xl text-gray-900">Earn Interest</h5>
-            <p className="text-lg text-gray-700">Finally, to reach mass-adoption, we offer interest for simplying using STB as part of our revolutionary tokenomic model </p>
+            <h5 className="mb-2 font-bold text-4xl text-gray-900">Inflation-Resistant</h5>
+            <p className="text-lg text-gray-700">Finally, to reach mass-adoption, we offer interest to counter inflation for simply using STB as part of our revolutionary tokenomic model </p>
           </div>
 
         </div>
