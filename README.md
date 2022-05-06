@@ -10,6 +10,10 @@ Stabler is a over-collateralized, decentralized, and diversified stablecoin that
 
 [Presentation Slides](https://docs.google.com/presentation/d/1gI8rLVwvrvJGj4v3WFcLK-tNUayb4MirJmdSGIIVkgQ/edit?usp=sharing)
 
+https://stabler.netlify.app
+
+https://app.netlify.com/sites/stabler/overview
+
 ### Screenshots
 
 <p align="center">
